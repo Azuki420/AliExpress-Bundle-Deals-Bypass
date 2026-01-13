@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AliExpress Bundle Deals Bypass - Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AliExpress Bundle Deals Bypass</h1>
+      <p class="subtitle">Configure how Bundle Deals links are highlighted</p>
+    </header>
+
+    <main>
+      <section class="settings-section">
+        <h2>Highlight Settings</h2>
+        
+        <div class="setting-item">
+          <label class="toggle-label">
+            <input type="checkbox" id="highlightEnabled" checked>
+            <span class="toggle-switch"></span>
+            <span class="label-text">Enable Bundle Deal highlighting</span>
+          </label>
+          <p class="description">Automatically highlight links that lead to Bundle Deals pages</p>
+        </div>
+
+        <div class="setting-item" id="styleSettings">
+          <label for="highlightStyle" class="regular-label">Highlight Style</label>
+          <select id="highlightStyle">
+            <option value="border">Border</option>
+            <option value="background">Background Color</option>
+            <option value="outline">Outline</option>
+            <option value="underline">Underline</option>
+          </select>
+          <p class="description">Choose how Bundle Deal links should be highlighted</p>
+        </div>
+
+        <div class="setting-item" id="colorSettings">
+          <label for="highlightColor" class="regular-label">Highlight Color</label>
+          <div class="color-picker-wrapper">
+            <input type="color" id="highlightColor" value="#ff4444">
+            <span id="colorValue">#ff4444</span>
+          </div>
+          <p class="description">Select the color used for highlighting</p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>Preview</h2>
+        <div class="preview-box">
+          <a href="#" id="previewLink" class="preview-link aliexpress-bundle-deal">
+            Example Bundle Deal Link
+          </a>
+          <p class="description">This shows how Bundle Deal links will appear on AliExpress pages</p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2>How to Use</h2>
+        <ol class="instructions">
+          <li><strong>Right-click on any AliExpress link</strong> and select "Open AliExpress Product" to bypass Bundle Deals</li>
+          <li><strong>Click the extension icon</strong> in the toolbar to open these settings</li>
+          <li><strong>Bundle Deal links are automatically highlighted</strong> when you browse AliExpress (if enabled)</li>
+        </ol>
+      </section>
+
+      <div class="button-group">
+        <button id="saveButton" class="btn btn-primary">Save Settings</button>
+        <button id="resetButton" class="btn btn-secondary">Reset to Defaults</button>
+      </div>
+
+      <div id="saveMessage" class="save-message"></div>
+    </main>
+
+    <footer>
+      <p>Version 0.2 | <a href="https://github.com/Azuki420/AliExpress-Bundle-Deals-Bypass" target="_blank">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

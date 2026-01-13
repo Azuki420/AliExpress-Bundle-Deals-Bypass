@@ -1,0 +1,27 @@
+/* Bundle Deal link styles */
+.aliexpress-bundle-deal {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.aliexpress-bundle-deal::after {
+  content: "Bundle Deal";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--bundle-deal-color, #ff4444);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 1000;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.aliexpress-bundle-deal:hover {
+  opacity: 0.85;
+}
