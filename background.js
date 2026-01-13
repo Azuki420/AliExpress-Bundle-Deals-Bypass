@@ -2,7 +2,8 @@
 const DEFAULT_SETTINGS = {
   highlightEnabled: true,
   highlightColor: '#ff4444',
-  highlightStyle: 'border'
+  highlightStyle: 'border',
+  autoRedirectEnabled: false
 };
 
 // Initialize settings
@@ -15,6 +16,9 @@ browser.storage.sync.get(DEFAULT_SETTINGS).then(settings => {
   }
   if (!settings.highlightStyle) {
     settings.highlightStyle = DEFAULT_SETTINGS.highlightStyle;
+  }
+  if (settings.autoRedirectEnabled === undefined) {
+    settings.autoRedirectEnabled = DEFAULT_SETTINGS.autoRedirectEnabled;
   }
   browser.storage.sync.set(settings);
 });

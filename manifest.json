@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "AliExpress Bundle Deals Bypass",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Bypass AliExpress Bundle Deals and open the item link directly.",
   "permissions": [
     "tabs",

@@ -2,11 +2,13 @@
 const DEFAULT_SETTINGS = {
   highlightEnabled: true,
   highlightColor: '#ff4444',
-  highlightStyle: 'border'
+  highlightStyle: 'border',
+  autoRedirectEnabled: false
 };
 
 // DOM elements
 const highlightEnabledCheckbox = document.getElementById('highlightEnabled');
+const autoRedirectEnabledCheckbox = document.getElementById('autoRedirectEnabled');
 const highlightStyleSelect = document.getElementById('highlightStyle');
 const highlightColorInput = document.getElementById('highlightColor');
 const colorValue = document.getElementById('colorValue');
@@ -21,10 +23,11 @@ const colorSettings = document.getElementById('colorSettings');
 function loadSettings() {
   browser.storage.sync.get(DEFAULT_SETTINGS).then(settings => {
     highlightEnabledCheckbox.checked = settings.highlightEnabled;
+    autoRedirectEnabledCheckbox.checked = settings.autoRedirectEnabled;
     highlightStyleSelect.value = settings.highlightStyle;
     highlightColorInput.value = settings.highlightColor;
     colorValue.textContent = settings.highlightColor;
-    
+
     updatePreview();
     toggleSettingsVisibility();
   });
@@ -34,6 +37,7 @@ function loadSettings() {
 function saveSettings() {
   const settings = {
     highlightEnabled: highlightEnabledCheckbox.checked,
+    autoRedirectEnabled: autoRedirectEnabledCheckbox.checked,
     highlightStyle: highlightStyleSelect.value,
     highlightColor: highlightColorInput.value
   };
@@ -72,7 +76,7 @@ function updatePreview() {
   if (enabled) {
     // Set CSS variable for the badge color
     previewLink.style.setProperty('--bundle-deal-color', color);
-    
+
     switch (style) {
       case 'border':
         previewLink.style.border = `2px solid ${color}`;
@@ -94,7 +98,7 @@ function updatePreview() {
     // Remove the badge class when disabled
     previewLink.classList.remove('aliexpress-bundle-deal');
   }
-  
+
   // Add back the badge class if enabled
   if (enabled && !previewLink.classList.contains('aliexpress-bundle-deal')) {
     previewLink.classList.add('aliexpress-bundle-deal');
@@ -105,7 +109,7 @@ function updatePreview() {
 function showSaveMessage(message, type) {
   saveMessage.textContent = message;
   saveMessage.className = 'save-message show ' + type;
-  
+
   setTimeout(() => {
     saveMessage.classList.remove('show');
   }, 3000);
@@ -114,7 +118,7 @@ function showSaveMessage(message, type) {
 // Toggle settings visibility based on enabled state
 function toggleSettingsVisibility() {
   const enabled = highlightEnabledCheckbox.checked;
-  
+
   if (enabled) {
     styleSettings.classList.remove('disabled');
     colorSettings.classList.remove('disabled');
