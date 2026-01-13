@@ -40,7 +40,7 @@
     }
   ],
   "browser_action": {
-    "default_title": "Open AliExpress product",
+    "default_title": "AliExpress Bundle Deals Bypass",
     "default_icon": {
       "16": "icon16.png",
       "32": "icon32.png",
